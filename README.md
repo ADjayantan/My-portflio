@@ -1,20 +1,80 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# React Example App
 
-# Run and deploy your AI Studio app
+This is a React application built with Vite and Tailwind CSS.
 
-This contains everything you need to run your app locally.
+## Prerequisites
 
-View your app in AI Studio: https://ai.studio/apps/deea0108-61ba-4509-9d9b-fa46d4111954
+- Node.js (v18 or higher)
+- npm (comes with Node.js)
 
-## Run Locally
+## Getting Started
 
-**Prerequisites:**  Node.js
+1.  **Clone the repository:**
 
+    ```bash
+    git clone https://github.com/your-username/your-repo-name.git
+    cd your-repo-name
+    ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+
+    Create a `.env` file in the root directory and add your API keys:
+
+    ```env
+    GEMINI_API_KEY=your_api_key_here
+    ```
+
+4.  **Run the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+    Open your browser and navigate to `http://localhost:3000`.
+
+## Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+The output will be in the `dist` directory.
+
+## Deploying to GitHub Pages
+
+This project is configured to deploy to GitHub Pages using the `gh-pages` package.
+
+1.  **Make sure your remote is set correctly.**
+
+2.  **Run the deploy script:**
+
+    ```bash
+    npm run deploy
+    ```
+
+    This command will:
+    -   Build the project (`npm run build`).
+    -   Push the `dist` folder to the `gh-pages` branch of your repository.
+
+3.  **Configure GitHub Pages:**
+
+    -   Go to your repository settings on GitHub.
+    -   Navigate to **Pages**.
+    -   Under **Source**, select `Deploy from a branch`.
+    -   Select the `gh-pages` branch and `/ (root)` folder.
+    -   Click **Save**.
+
+Your app should now be live at `https://<your-username>.github.io/<repo-name>/`.
+
+## Troubleshooting
+
+-   **Blank page on deploy:** Ensure the `base` in `vite.config.ts` matches your repository name or is set to `'./'`. Currently it is set to `'./'`.
+-   **API Key issues:** Since the API key is baked into the build (via `vite.config.ts`), make sure your `.env` file has the correct key *before* running `npm run deploy`.
